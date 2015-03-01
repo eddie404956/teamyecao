@@ -9,6 +9,8 @@ public class User {
 	
 	private String name;
 	
+	private String password;
+	
 	private String webchat;
 	
 	private String email;
@@ -16,6 +18,8 @@ public class User {
 	private String cellphone;
 	
 	private String qq;
+	
+	private String createTime;
 	
 	private List<String> address=new ArrayList<String>();
 
@@ -58,9 +62,29 @@ public class User {
 	public void setCellphone(String cellphone) {
 		this.cellphone = cellphone;
 	}
+	
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getQq() {
 		return qq;
+	}
+	
+	
+
+	public String getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
 	}
 
 	public void setQq(String qq) {

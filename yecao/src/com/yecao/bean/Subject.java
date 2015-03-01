@@ -11,6 +11,8 @@ public class Subject {
 	private String content;
 	private User user;
 	private Blob pic;
+	
+	private String createTime;
 	private List<Comment> comments=new ArrayList<Comment>();
 	public String getId() {
 		return id;
@@ -48,6 +50,13 @@ public class Subject {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+	public String getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+	
 	
 	
 }
