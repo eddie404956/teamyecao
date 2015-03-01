@@ -21,7 +21,16 @@ public class SubjectService {
 	
 	public List<Subject> getSubjects(int page){
 		List<Subject> subjects=subjectMapper.getSubjects(page);
+//		for(Subject s:subjects){
+//			s.setUser(userMapper.selectOne(s.getUserId()));
+//			s.setComments(commentMapper.getBySubjectId(s.getId()));
+//		}
 		return subjects;
 		
+	}
+	public Subject getSubjectDetail(Subject s){
+		s.setUser(userMapper.selectOne(s.getUserId()));
+		s.setComments(commentMapper.getBySubjectId(s.getId()));
+		return s;
 	}
 }
