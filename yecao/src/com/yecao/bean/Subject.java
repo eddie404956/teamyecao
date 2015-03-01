@@ -10,6 +10,7 @@ public class Subject {
 	private String title;
 	private String content;
 	private User user;
+	private String userId;
 	private Blob pic;
 	
 	private String createTime;
@@ -56,6 +57,13 @@ public class Subject {
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
 	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	
 	
 	
 	
