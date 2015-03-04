@@ -14,8 +14,7 @@
 }
 
 .body {
-	margin: auto;
-	width:65%;
+	
 }
 
 .footer {
@@ -31,7 +30,7 @@ ul {
 
 li {
 	margin: 1px;
-	float: left;
+	float: right;
 }
 
 .body a:link,a:visited {
@@ -59,11 +58,16 @@ li {
 	</div>
 	<div class="body">
 		<ul>
-			<li><a href="#home">发布</a>
-			</li>
-			<li><a href="#news">编辑</a>
-			</li>
+			<li><a href="#home">发布</a></li>
+			<li><a href="#news">编辑</a></li>
+
+
 		</ul>
+		<form>
+		<p class="title">标题：<input type="text" name="title"/></p>
+		<p class="title">内容：<input type="text" name="content"/></p>
+		<p class="title">图片：<input type="file" name="pic"/></p>
+		</form>
 	</div>
 	<div class="footer"></div>
 </body>
