@@ -28,7 +28,8 @@ public class SubjectService {
 		return subjects;
 		
 	}
-	public Subject getSubjectDetail(Subject s){
+	public Subject getSubjectDetail(String id){
+		Subject s=subjectMapper.selectOne(id);
 		s.setUser(userMapper.selectOne(s.getUserId()));
 		s.setComments(commentMapper.getBySubjectId(s.getId()));
 		return s;
