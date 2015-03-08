@@ -28,8 +28,14 @@ CREATE TABLE `subject` (
   `title` varchar(45) NOT NULL,
   `content` varchar(45) NOT NULL,
   `userid` int(11) DEFAULT NULL,
-  `pic` blob,
+  `picid` int(11) DEFAULT NULL,
   `createtime` varchar(14) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `pic` (
+  `id` int(11) NOT NULL,
+  `pic` blob NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

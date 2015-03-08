@@ -24,7 +24,7 @@ public class SubjectMapper {
 	
 	private JdbcTemplate t = null;
 
-	public static final String ADD_SUBJECT = "INSERT INTO subject(title,content,userid,pic,createtime)VALUES(?,?,?,?,?)";
+	public static final String ADD_SUBJECT = "INSERT INTO subject(title,content,userid,picid,createtime)VALUES(?,?,?,?,?)";
 	
 	public static final String DEL_SUBJECT = "DELETE FROM subject where id=?";
 	
@@ -41,7 +41,7 @@ public class SubjectMapper {
 				ps.setString(1, subject.getTitle());
 				ps.setString(2, subject.getContent());
 				ps.setString(3, subject.getUser().getId());
-				ps.setBinaryStream(4, subject.getPic().getBinaryStream());
+				ps.setInt(4, Integer.parseInt(subject.getPicId()));
 				ps.setString(5, subject.getCreateTime());
 			}});
 	}
@@ -69,7 +69,7 @@ public class SubjectMapper {
 				Subject subject=new Subject();
 				subject.setTitle(rs.getString("title"));
 				subject.setContent(rs.getString("content"));
-				subject.setPic(rs.getBlob("pic"));
+				subject.setPicId(rs.getInt("picid")+"");
 				subject.setCreateTime(rs.getString("email"));
 				subject.setCreateTime(rs.getString("createtime"));
 				subject.setUserId(rs.getString("userid"));
@@ -86,7 +86,7 @@ public class SubjectMapper {
 				Subject subject=new Subject();
 				subject.setTitle(rs.getString("title"));
 				subject.setContent(rs.getString("content"));
-				subject.setPic(rs.getBlob("pic"));
+				subject.setPicId(rs.getInt("picid")+"");
 				subject.setCreateTime(rs.getString("email"));
 				subject.setCreateTime(rs.getString("createtime"));
 				subject.setUserId(rs.getString("userid"));

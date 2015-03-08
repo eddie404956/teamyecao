@@ -23,14 +23,23 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery.masonry.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#sub1').on('click', function () {
+		    $('#addSubject').submit();
+		  })
+	});
+	
+</script>
 </head>
 <body>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-1.11.2.min.js"></script>
-	<script src="js/jquery.masonry.min.js"></script>
+
 	<div class="container-fluid"
 		style="border-top: solid; border-left: solid; border-right: solid; margin-left: 50px; margin-right: 50px">
 		<div class="row">
@@ -53,7 +62,7 @@
 		</div>
 		<div class="row">
 
-			<form class="form-horizontal">
+			<form id="addSubject" class="form-horizontal" action="addsubject.d">
 				<div class="form-group">
 					<div class="col-md-2"></div>
 					<label for="name1" class="col-md-2 control-label">品名</label>
@@ -81,7 +90,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-5"></div>
-			<button type="button" class="btn btn-default">提交</button>
+			<button type="button" class="btn btn-default" id="sub1">提交</button>
 			<button type="button" class="btn btn-default">清除</button>
 			<button type="button" class="btn btn-default">刪除</button>
 		</div>

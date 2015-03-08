@@ -1,6 +1,5 @@
 package com.yecao.bean;
 
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,7 @@ public class Subject {
 	private String content;
 	private User user;
 	private String userId;
-	private Blob pic;
+	private String picId;
 	
 	private String createTime;
 	private List<Comment> comments=new ArrayList<Comment>();
@@ -39,12 +38,6 @@ public class Subject {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Blob getPic() {
-		return pic;
-	}
-	public void setPic(Blob pic) {
-		this.pic = pic;
-	}
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -62,6 +55,12 @@ public class Subject {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public String getPicId() {
+		return picId;
+	}
+	public void setPicId(String picId) {
+		this.picId = picId;
 	}
 	
 	

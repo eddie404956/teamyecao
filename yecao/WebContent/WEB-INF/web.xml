@@ -20,7 +20,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatch</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.d</url-pattern>
 	</servlet-mapping>
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
