@@ -35,7 +35,9 @@ CREATE TABLE `subject` (
 
 
 CREATE TABLE `pic` (
-  `id` int(11) NOT NULL,
-  `pic` blob NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pic` longblob NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+

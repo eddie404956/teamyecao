@@ -7,7 +7,7 @@
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
 	default-autowire="byName" default-lazy-init="true">
 
-
+	<context:component-scan base-package="com.yecao.mapper,com.yecao.service"/>
 
 	<!-- HandlerMapping -->
 	<bean
@@ -25,8 +25,8 @@
 		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
-	<bean name="/addsubject.d" class="com.yecao.controller.AddSubjectController"/>
+
+	<bean name="/addsubject.d" class="com.yecao.controller.AddSubjectController" />
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource">
@@ -67,4 +67,10 @@
 			<value>180</value>
 		</property>
 	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		 <property name="defaultEncoding" value="UTF-8"/>  
+	</bean>
+
 </beans>

@@ -5,13 +5,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.yecao.bean.Comment;
 import com.yecao.bean.Subject;
 
+@Component("CommentMapper")
 public class CommentMapper {
 	
 public static final String ADD_COMMENT = "INSERT INTO comment(content,time,userid,subjectid)VALUES(?,?,?,?)";
@@ -19,6 +22,7 @@ public static final String ADD_COMMENT = "INSERT INTO comment(content,time,useri
 	public static final String DEL_COMMENT = "DELETE FROM comment where id=?";
 	
 	public static final String SELECT_COMMENT = "SELECT * FROM comment where subjectid=?";
+	@Autowired
 	private JdbcTemplate t = null;
 
 	public void addComment(final String subjectid, final Comment comment) {

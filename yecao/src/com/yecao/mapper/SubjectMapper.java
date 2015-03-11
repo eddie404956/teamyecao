@@ -6,10 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.yecao.Constance;
 import com.yecao.bean.Subject;
@@ -20,11 +22,16 @@ import com.yecao.bean.User;
  * @author dujh
  *
  */
+@Component("SubjectMapper")
 public class SubjectMapper {
-	
+	@Autowired
 	private JdbcTemplate t = null;
 
-	public static final String ADD_SUBJECT = "INSERT INTO subject(title,content,userid,picid,createtime)VALUES(?,?,?,?,?)";
+	public static final String ADD_SUBJECT = "INSERT INTO subject(title,content," +
+//			"userid,picid," +
+			"createtime)VALUES(?,?," +
+//			"?,?," +
+			"?)";
 	
 	public static final String DEL_SUBJECT = "DELETE FROM subject where id=?";
 	
@@ -40,9 +47,9 @@ public class SubjectMapper {
 			public void setValues(PreparedStatement ps) throws SQLException {
 				ps.setString(1, subject.getTitle());
 				ps.setString(2, subject.getContent());
-				ps.setString(3, subject.getUser().getId());
-				ps.setInt(4, Integer.parseInt(subject.getPicId()));
-				ps.setString(5, subject.getCreateTime());
+//				ps.setString(3, subject.getUser().getId());
+//				ps.setInt(4, Integer.parseInt(subject.getPicId()));
+				ps.setString(3, subject.getCreateTime());
 			}});
 	}
 	

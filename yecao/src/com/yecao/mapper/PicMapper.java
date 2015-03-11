@@ -4,17 +4,25 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.yecao.bean.Pic;
 
+@Component("PicMapper")
 public class PicMapper {
 
+	@Autowired
 	private JdbcTemplate t = null;
 
-	public static final String ADD_Pic = "INSERT INTO PIC(id,pic)VALUES(?,?)";
+	public static final String ADD_Pic = "INSERT INTO PIC(" +
+//			"id," +
+			"pic)VALUES(?" +
+//			",?" +
+			")";
 
 	public static final String DEL_Pic = "DELETE FROM PIC where id=?";
 
@@ -24,8 +32,8 @@ public class PicMapper {
 		t.update(ADD_Pic, new PreparedStatementSetter() {
 
 			public void setValues(PreparedStatement ps) throws SQLException {
-				ps.setInt(1, Integer.parseInt(pic.getId()));
-				ps.setBinaryStream(2, pic.getInputStream());
+//				ps.setInt(1, Integer.parseInt(pic.getId()));
+				ps.setBinaryStream(1, pic.getInputStream());
 			}
 		});
 	}

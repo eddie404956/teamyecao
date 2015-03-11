@@ -4,13 +4,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.yecao.bean.User;
 
+@Component("UserMapper")
 public class UserMapper {
+	@Autowired
 	private JdbcTemplate t = null;
 
 	public static final String ADD_USER = "INSERT INTO user(name,password,webchat,email,cellphone,qq,createtime)VALUES(?,?,?,?,?,?,?)";
