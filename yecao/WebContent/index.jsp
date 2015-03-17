@@ -81,7 +81,7 @@
 				<ul class="nav nav-tabs ">
 					<li role="presentation" class="active"><a href="#">首页</a></li>
 					<li role="presentation"><a href="#">我要买</a></li>
-					<li role="presentation"><a href="#">我要卖</a></li>
+					<li role="presentation"><a href="addsubject.html">我要卖</a></li>
 					<li role="presentation"><a href="#">团购</a></li>
 				</ul>
 			</div>
