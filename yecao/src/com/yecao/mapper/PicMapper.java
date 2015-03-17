@@ -19,9 +19,9 @@ public class PicMapper {
 	private JdbcTemplate t = null;
 
 	public static final String ADD_Pic = "INSERT INTO PIC(" +
-//			"id," +
+			"id," +
 			"pic)VALUES(?" +
-//			",?" +
+			",?" +
 			")";
 
 	public static final String DEL_Pic = "DELETE FROM PIC where id=?";
@@ -32,8 +32,8 @@ public class PicMapper {
 		t.update(ADD_Pic, new PreparedStatementSetter() {
 
 			public void setValues(PreparedStatement ps) throws SQLException {
-//				ps.setInt(1, Integer.parseInt(pic.getId()));
-				ps.setBinaryStream(1, pic.getInputStream());
+				ps.setString(1, pic.getId());
+				ps.setBinaryStream(2, pic.getInputStream());
 			}
 		});
 	}
@@ -54,7 +54,7 @@ public class PicMapper {
 					public Pic mapRow(ResultSet rs, int arg1)
 							throws SQLException {
 						Pic pic = new Pic();
-						pic.setId(rs.getInt("title") + "");
+						pic.setId(rs.getString("id"));
 						pic.setInputStream(rs.getBlob("pic").getBinaryStream());
 						return pic;
 					}

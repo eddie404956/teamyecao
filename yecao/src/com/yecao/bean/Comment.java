@@ -5,7 +5,8 @@ public class Comment {
 	private String id;
 	private String content;
 	private String time;
-	private User user;
+	private String userId;
+	private String subjectId;
 	public String getId() {
 		return id;
 	}
@@ -24,12 +25,19 @@ public class Comment {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public User getUser() {
-		return user;
+	public String getUserId() {
+		return userId;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
+	public String getSubjectId() {
+		return subjectId;
+	}
+	public void setSubjectId(String subjectId) {
+		this.subjectId = subjectId;
+	}
+	
 	
 	
 }

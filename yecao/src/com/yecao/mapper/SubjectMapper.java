@@ -27,11 +27,11 @@ public class SubjectMapper {
 	@Autowired
 	private JdbcTemplate t = null;
 
-	public static final String ADD_SUBJECT = "INSERT INTO subject(title,content," +
-//			"userid,picid," +
+	public static final String ADD_SUBJECT = "INSERT INTO subject(id,title,content," +
+			"userid,picid," +
 			"createtime)VALUES(?,?," +
-//			"?,?," +
-			"?)";
+			"?,?," +
+			"?,?)";
 	
 	public static final String DEL_SUBJECT = "DELETE FROM subject where id=?";
 	
@@ -45,11 +45,12 @@ public class SubjectMapper {
 		t.update(ADD_SUBJECT, new PreparedStatementSetter(){
 
 			public void setValues(PreparedStatement ps) throws SQLException {
-				ps.setString(1, subject.getTitle());
-				ps.setString(2, subject.getContent());
-//				ps.setString(3, subject.getUser().getId());
-//				ps.setInt(4, Integer.parseInt(subject.getPicId()));
-				ps.setString(3, subject.getCreateTime());
+				ps.setString(1, subject.getId());
+				ps.setString(2, subject.getTitle());
+				ps.setString(3, subject.getContent());
+				ps.setString(4, subject.getUser().getId());
+				ps.setString(5, subject.getPicId());
+				ps.setString(6, subject.getCreateTime());
 			}});
 	}
 	
@@ -91,6 +92,7 @@ public class SubjectMapper {
 
 			public Object mapRow(ResultSet rs, int arg1) throws SQLException {
 				Subject subject=new Subject();
+				subject.setId(rs.getString("id"));
 				subject.setTitle(rs.getString("title"));
 				subject.setContent(rs.getString("content"));
 				subject.setPicId(rs.getInt("picid")+"");

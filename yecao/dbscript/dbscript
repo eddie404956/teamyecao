@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(32) NOT NULL,
   `name` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `webchat` varchar(45) DEFAULT NULL,
@@ -11,33 +11,37 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(32) NOT NULL,
   `content` varchar(45) NOT NULL,
   `time` varchar(14) DEFAULT NULL,
-  `userid` int(11) DEFAULT NULL,
-  `subjectid` int(11) DEFAULT NULL,
+  `userid` varchar(32) DEFAULT NULL,
+  `subjectid` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+
 DROP TABLE IF EXISTS `subject`;
 CREATE TABLE `subject` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(32) NOT NULL,
   `title` varchar(45) NOT NULL,
   `content` varchar(45) NOT NULL,
-  `userid` int(11) DEFAULT NULL,
-  `picid` int(11) DEFAULT NULL,
+  `userid` varchar(32) DEFAULT NULL,
+  `picid` varchar(32) DEFAULT NULL,
   `createtime` varchar(14) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+DROP TABLE IF EXISTS `pic`;
 CREATE TABLE `pic` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(32) NOT NULL,
   `pic` longblob NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 

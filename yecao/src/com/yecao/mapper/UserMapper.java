@@ -17,7 +17,7 @@ public class UserMapper {
 	@Autowired
 	private JdbcTemplate t = null;
 
-	public static final String ADD_USER = "INSERT INTO user(name,password,webchat,email,cellphone,qq,createtime)VALUES(?,?,?,?,?,?,?)";
+	public static final String ADD_USER = "INSERT INTO user(id,name,password,webchat,email,cellphone,qq,createtime)VALUES(?,?,?,?,?,?,?,?)";
 	
 	public static final String DEL_USER = "DELETE FROM user where id=?";
 	
@@ -30,13 +30,14 @@ public class UserMapper {
 		t.update(ADD_USER, new PreparedStatementSetter(){
 
 			public void setValues(PreparedStatement ps) throws SQLException {
-				ps.setString(1, user.getName());
-				ps.setString(2, user.getPassword());
-				ps.setString(3, user.getWebchat());
-				ps.setString(4, user.getEmail());
-				ps.setString(5, user.getCellphone());
-				ps.setString(6, user.getQq());
-				ps.setString(7, user.getCreateTime());
+				ps.setString(1, user.getId());
+				ps.setString(2, user.getName());
+				ps.setString(3, user.getPassword());
+				ps.setString(4, user.getWebchat());
+				ps.setString(5, user.getEmail());
+				ps.setString(6, user.getCellphone());
+				ps.setString(7, user.getQq());
+				ps.setString(8, user.getCreateTime());
 			}});
 	}
 
@@ -52,13 +53,14 @@ public class UserMapper {
 		t.update(UPDATE_USER, new PreparedStatementSetter(){
 
 			public void setValues(PreparedStatement ps) throws SQLException {
-				ps.setString(7, user.getName());
-				ps.setString(1, user.getPassword());
-				ps.setString(2, user.getWebchat());
-				ps.setString(3, user.getEmail());
-				ps.setString(4, user.getCellphone());
-				ps.setString(5, user.getQq());
-				ps.setString(6, user.getCreateTime());
+				ps.setString(1, user.getName());
+				ps.setString(2, user.getPassword());
+				ps.setString(3, user.getWebchat());
+				ps.setString(4, user.getEmail());
+				ps.setString(5, user.getCellphone());
+				ps.setString(6, user.getQq());
+				ps.setString(7, user.getCreateTime());
+				ps.setString(8, user.getId());
 			}});
 	}
 
@@ -67,6 +69,7 @@ public class UserMapper {
 
 			public User mapRow(ResultSet rs, int arg1) throws SQLException {
 				User user=new User();
+				user.setId(rs.getString("id"));
 				user.setName(rs.getString("name"));
 				user.setPassword(rs.getString("password"));
 				user.setWebchat(rs.getString("webchat"));

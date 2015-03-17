@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.yecao.bean.Pic;
 import com.yecao.bean.Subject;
+import com.yecao.bean.Util;
 import com.yecao.mapper.CommentMapper;
 import com.yecao.mapper.PicMapper;
 import com.yecao.mapper.SubjectMapper;
@@ -26,18 +27,25 @@ public class SubjectService {
 	private PicMapper picMapper;
 	
 	public void addSubject(Subject subject,InputStream is){
-		subjectMapper.addSubject(subject);
+		subject.setId(Util.getId());
+		subject.getUser().setId(Util.getId());
+		
 		Pic pic=new Pic();
+		pic.setId(Util.getId());
 		pic.setInputStream(is);
 		picMapper.addPic(pic);
+		
+		subject.setPicId(pic.getId());
+		subjectMapper.addSubject(subject);
+		
 	}
 	
 	public List<Subject> getSubjects(int page){
 		List<Subject> subjects=subjectMapper.getSubjects(page);
-//		for(Subject s:subjects){
-//			s.setUser(userMapper.selectOne(s.getUserId()));
-//			s.setComments(commentMapper.getBySubjectId(s.getId()));
-//		}
+		for(Subject s:subjects){
+			s.setUser(userMapper.selectOne(s.getUserId()));
+			s.setComments(commentMapper.getBySubjectId(s.getId()));
+		}
 		return subjects;
 		
 	}

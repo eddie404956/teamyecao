@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.yecao.bean.Subject;
+import com.yecao.bean.User;
 import com.yecao.service.SubjectService;
 
 public class AddSubjectController implements Controller {
@@ -34,6 +35,10 @@ public class AddSubjectController implements Controller {
 		subject.setTitle(req.getParameter("title"));
 		subject.setContent(req.getParameter("content"));
 		subject.setCreateTime(format.format(new Date()));
+		User user=new User();
+		user.setId("1234");
+		user.setName("admin");
+		subject.setUser(user);
 		subjectService.addSubject(subject, pic);
 		ModelAndView mv = new ModelAndView();
 		// 添加模型数据 可以是任意的POJO对象

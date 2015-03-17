@@ -17,7 +17,7 @@ import com.yecao.bean.Subject;
 @Component("CommentMapper")
 public class CommentMapper {
 	
-public static final String ADD_COMMENT = "INSERT INTO comment(content,time,userid,subjectid)VALUES(?,?,?,?)";
+public static final String ADD_COMMENT = "INSERT INTO comment(id,content,time,userid,subjectid)VALUES(?,?,?,?,?)";
 	
 	public static final String DEL_COMMENT = "DELETE FROM comment where id=?";
 	
@@ -29,10 +29,11 @@ public static final String ADD_COMMENT = "INSERT INTO comment(content,time,useri
 		t.update(ADD_COMMENT, new PreparedStatementSetter(){
 
 			public void setValues(PreparedStatement ps) throws SQLException {
-				ps.setString(1, comment.getContent());
-				ps.setString(2, comment.getTime());
-				ps.setString(3, comment.getUser().getId());
-				ps.setString(4, subjectid);
+				ps.setString(1, comment.getId());
+				ps.setString(2, comment.getContent());
+				ps.setString(3, comment.getTime());
+				ps.setString(4, comment.getUserId());
+				ps.setString(5, subjectid);
 			}});
 	}
 	public void delComment( final String  commentId) {
@@ -53,8 +54,11 @@ public static final String ADD_COMMENT = "INSERT INTO comment(content,time,useri
 
 			public Object mapRow(ResultSet rs, int arg1) throws SQLException {
 				Comment subject=new Comment();
+				subject.setId(rs.getString("id"));
 				subject.setTime(rs.getString("time"));
 				subject.setContent(rs.getString("content"));
+				subject.setSubjectId(rs.getString("subjectid"));
+				subject.setUserId(rs.getString("userid"));
 				return subject;
 			}
 		});
