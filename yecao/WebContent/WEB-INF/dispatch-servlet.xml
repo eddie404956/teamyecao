@@ -27,6 +27,8 @@
 	</bean>
 
 	<bean name="/addsubject.d" class="com.yecao.controller.AddSubjectController" />
+	<bean name="/pic.d" class="com.yecao.controller.ShowPicController" />
+	<bean name="/index.d" class="com.yecao.controller.IndexController" />
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource">

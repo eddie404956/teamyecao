@@ -77,8 +77,8 @@ public class SubjectMapper {
 				Subject subject=new Subject();
 				subject.setTitle(rs.getString("title"));
 				subject.setContent(rs.getString("content"));
-				subject.setPicId(rs.getInt("picid")+"");
-				subject.setCreateTime(rs.getString("email"));
+				subject.setPicId(rs.getString("picid"));
+//				subject.setCreateTime(rs.getString("email"));
 				subject.setCreateTime(rs.getString("createtime"));
 				subject.setUserId(rs.getString("userid"));
 				return subject;
@@ -87,7 +87,7 @@ public class SubjectMapper {
 	}
 	public List<Subject> getSubjects(int page){
 		//·ÖÒ³
-		String sql=SELECT_SUBJECT+page+" "+Constance.SUBJECT_PAGE_SIZE;
+		String sql=SELECT_SUBJECT+page+","+Constance.SUBJECT_PAGE_SIZE;
 		return t.query(sql,new RowMapper() {
 
 			public Object mapRow(ResultSet rs, int arg1) throws SQLException {
@@ -95,8 +95,8 @@ public class SubjectMapper {
 				subject.setId(rs.getString("id"));
 				subject.setTitle(rs.getString("title"));
 				subject.setContent(rs.getString("content"));
-				subject.setPicId(rs.getInt("picid")+"");
-				subject.setCreateTime(rs.getString("email"));
+				subject.setPicId(rs.getString("picid"));
+//				subject.setCreateTime(rs.getString("email"));
 				subject.setCreateTime(rs.getString("createtime"));
 				subject.setUserId(rs.getString("userid"));
 				return subject;
