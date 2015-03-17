@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -8,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+
 <script src="js/jquery-1.11.2.min.js"></script>
 
 <script src="js/jquery.masonry.min.js"></script>
@@ -87,13 +89,14 @@
 			</div>
 		</div>
 		<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8" style="margin-left:15px;margin-right:auto;padding-top: 200px;background:url(images/Desert.jpg);background-size:80% 240px;"></div>
+			<div class="col-md-2"></div>
+			<div class="col-md-8"
+				style="margin-left: 15px; margin-right: auto; padding-top: 200px; background: url(images/Desert.jpg); background-size: 80% 240px;"></div>
 		</div>
 		<div class="row">
 			<div class="col-md-2"></div>
-			<div class="col-md-8" >
-				<div class="input-group" style="padding:1px;">
+			<div class="col-md-8">
+				<div class="input-group" style="padding: 1px;">
 					<input type="text" class="form-control" placeholder="点击输入你想要的.."
 						aria-describedby="basic-addon2"> <span
 						class="input-group-addon " id="basic-addon2"><span
@@ -111,44 +114,16 @@
 		<div id="masonry row" class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div class="box ">
-					<a href="#" class="thumbnail"> <img
-						src="images/Chrysanthemum.jpg">
-						<div class="caption ">菊花</div> </a>
-				</div>
 
 
-				<div class="box">
-					<a href="#" class="thumbnail"><img src="images/Desert.jpg">
-						<div class="caption">荒漠</div> </a>
-				</div>
+				<c:forEach items="${subjects }" var="subject">
+					<div class="box">
+						<a href="#" class="thumbnail"><img
+							src="pic.d?pic=${subject.picId}">
+							<div class="caption">${subject.title}</div> </a>
+					</div>
 
-				<div class="box">
-					<a href="#" class="thumbnail"><img src="images/Hydrangeas.jpg">
-						<div class="caption">植物</div> </a>
-				</div>
-
-				<div class="box">
-					<a href="#" class="thumbnail"><img src="images/Jellyfish.jpg">
-						<div class="caption">水母</div> </a>
-				</div>
-
-				<div class="box">
-					<a href="#" class="thumbnail"><img src="images/Koala.jpg">
-						<div class="caption">树熊</div> </a>
-				</div>
-				<div class="box">
-					<a href="#" class="thumbnail"><img src="images/Lighthouse.jpg">
-						<div class="caption">城堡</div> </a>
-				</div>
-				<div class="box">
-					<a href="#" class="thumbnail"><img src="images/Penguins.jpg">
-						<div class="caption">企鹅</div> </a>
-				</div>
-				<div class="box">
-					<a href="#" class="thumbnail"><img src="images/Tulips.jpg">
-						<div class="caption">黄色的花</div> </a>
-				</div>
+				</c:forEach>
 
 			</div>
 			<div class="col-md-2"></div>

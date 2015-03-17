@@ -42,9 +42,9 @@ public class AddSubjectController implements Controller {
 		subjectService.addSubject(subject, pic);
 		ModelAndView mv = new ModelAndView();
 		// 添加模型数据 可以是任意的POJO对象
-		mv.addObject("message", "Hello World!");
+//		mv.addObject("message", "Hello World!");
 		// 设置逻辑视图名，视图解析器会根据该名字解析到具体的视图页面
-		mv.setViewName("index");
+		mv.setViewName("index.d");
 		return mv;
 	}
 

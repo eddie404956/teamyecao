@@ -29,12 +29,11 @@
 <script src="js/jquery-1.11.2.min.js"></script>
 <script src="js/jquery.masonry.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$('#sub1').on('click', function () {
-		    $('#addSubject').submit();
-		  })
+	$(function() {
+		$('#sub1').on('click', function() {
+			$('#addSubject').submit();
+		})
 	});
-	
 </script>
 </head>
 <body>
@@ -62,7 +61,8 @@
 		</div>
 		<div class="row">
 
-			<form id="addSubject" class="form-horizontal" action="addsubject.d" enctype="multipart/form-data" method="POST">
+			<form id="addSubject" class="form-horizontal" action="addsubject.d"
+				enctype="multipart/form-data" method="POST">
 				<div class="form-group">
 					<div class="col-md-2"></div>
 					<label for="name1" class="col-md-2 control-label">品名</label>
